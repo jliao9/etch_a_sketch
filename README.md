@@ -1,1 +1,2 @@
 # etch_a_sketch
+In this project, we create a browser version of a drawing tool. This project focuses on DOM manipulation and builds upon our javascript skills while ensuring quality user interface and experience.
