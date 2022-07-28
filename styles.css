@@ -1,3 +1,7 @@
+.header {
+  font-weight: bold;
+  font-size: 50px;
+}
 
 #restart, .footer, html, .header, .options{
   display: flex;
@@ -5,8 +9,13 @@
   padding: 10px;
   justify-content: center;
   align-items: center;
+  font-family: monospace;
 }
 
+.options {
+  gap: 20px;
+  padding: 30px;
+}
 
 :root {
     --grid-cols: 1;
@@ -56,16 +65,17 @@ span:hover {
 
 a {
   color: black;
+  font-size: 25px;
   text-decoration: none;
 }
 .footer {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  gap: 500px;
   width: 100%;
   left: 0;
   bottom: 0;
   position: fixed;
 }
 
-#restart {
-  bottom: 0;
-}

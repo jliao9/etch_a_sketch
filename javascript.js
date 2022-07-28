@@ -26,14 +26,22 @@ cells.forEach(cell => {
   cell.addEventListener("click", () => {
     cell.style.backgroundColor = "black";
   });
-   // cell.addEventListener("mouseleave", () =>{
-   //   cell.style.backgroundColor = "white";
-   // });
+  //  cell.addEventListener("mouseleave", () =>{
+  //    cell.style.backgroundColor = "white";
+  //  });
  })
  
 //bw button
 
 const bw = document.getElementById("bw");
+function blackWhite() {
+  bw.addEventListener("click", ()=>{
+    cells.forEach(cell =>
+      cell.addEventListener("mouseenter", () => {
+        cell.style.backgroundColor ="black"
+      }))
+  })
+}
 
 //on user selection of custom
 const custom = document.getElementById("custom");
@@ -41,7 +49,7 @@ function colorSelected() {
   custom.addEventListener("click", (element) =>{
     cells.forEach(cell =>{
       cell.addEventListener("mouseenter", () =>{
-        cell.style.backgroundColor = "element.value";
+        cell.style.backgroundColor = `#${element.value}`;
       });
     });
   })
@@ -57,5 +65,22 @@ function erase() {
   })
 }
 
+
+const rainbow = document.getElementById("rainbow");
+function random(){
+  rainbow.addEventListener("click", () => {
+    cells.forEach(cell =>{
+      const randomColor = Math.floor(Math.random()*16777215).toString(16);
+      cell.addEventListener("mouseenter", () => {
+        cell.style.backgroundColor = `#${randomColor}`;
+      });
+      cell.addEventListener("click", () =>{
+        cell.style.backgroundColor = `#${randomColor}`;
+      });
+    });
+  });
+};
+
+random();
 colorSelected();
 erase();
