@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ETCH A SKETCH</title>
     <link rel = "stylesheet" href="styles.css">
-    <link rel="font" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 </head>
 <body>
     <div class = "header"> ETCH-A-SKETCH</div>
@@ -14,7 +14,7 @@
     <div class = "options">
         <button id = "rainbow">RAINBOW</button>
         <button id= "bw">BLACK/WHITE</button>
-        <button id = "custom">CUSTOM</button>
+        <button id = "custom">CUSTOM <input onchange="colorSelected(this)" type="color"></button>
         <button id = "eraser">ERASER</button>
     </div>
 
@@ -22,11 +22,12 @@
         <div id = "container"></div>
     </div>
 
-    <div id = "restart"><a href="javascript:location.reload(true)"><span>Restart</a></div></span>
+    <div id = "restart"><a href="javascript:location.reload(true)"><span>RESTART</a></div></span>
 
     <div class='footer'>
         <a href = "https://github.com/jliao9">
-        <i class="fab fa-github"></i></a></div>
+        <i class="fab fa-github"></i></a>
+    </div>
     <script src = "javascript.js"></script>
 </body>
 </html>

@@ -9,8 +9,53 @@ function makeRows(rows, cols) {
   container.style.setProperty('--grid-cols', cols);
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
-    container.appendChild(cell).className = "grid-item";
+    container.appendChild(cell).className = "cell";
+
   };
 };
-
 makeRows(16, 16);
+
+const cells = document.querySelectorAll(".cell");
+
+//default color
+
+cells.forEach(cell => {
+   cell.addEventListener("mouseenter", () => {
+     cell.style.backgroundColor = "black";
+  });
+  cell.addEventListener("click", () => {
+    cell.style.backgroundColor = "black";
+  });
+   // cell.addEventListener("mouseleave", () =>{
+   //   cell.style.backgroundColor = "white";
+   // });
+ })
+ 
+//bw button
+
+const bw = document.getElementById("bw");
+
+//on user selection of custom
+const custom = document.getElementById("custom");
+function colorSelected() {
+  custom.addEventListener("click", (element) =>{
+    cells.forEach(cell =>{
+      cell.addEventListener("mouseenter", () =>{
+        cell.style.backgroundColor = "element.value";
+      });
+    });
+  })
+};
+
+const eraser = document.getElementById("eraser");
+function erase() {
+  eraser.addEventListener("click", ()=>{
+    cells.forEach(cell =>
+      cell.addEventListener("mouseenter", () => {
+        cell.style.backgroundColor = "white";
+      }))
+  })
+}
+
+colorSelected();
+erase();
