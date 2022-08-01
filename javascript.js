@@ -1,6 +1,3 @@
-//using CSS grid and CSS variables to make dynamic rows and columns 
-//https://en.wikipedia.org/wiki/CSS_grid_layout
-//https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 
 const container = document.getElementById("container");
 
@@ -13,22 +10,32 @@ function makeRows(rows, cols) {
 
   };
 };
-makeRows(16, 16);
+
+
+let i = document.querySelector('input'),
+    o = document.querySelector('output');
+
+o.innerHTML = i.value;
+
+// use 'change' instead to see the difference in response
+i.addEventListener('input', function () {
+  o.innerHTML = i.value;
+  makeRows(i.value,i.value);
+}, false);
+
+makeRows(i.value,i.value);
 
 const cells = document.querySelectorAll(".cell");
 
-//default color
 
 cells.forEach(cell => {
-   cell.addEventListener("mouseenter", () => {
+   cell.addEventListener("mouseleave", () => {
      cell.style.backgroundColor = "black";
   });
   cell.addEventListener("click", () => {
     cell.style.backgroundColor = "black";
   });
-  //  cell.addEventListener("mouseleave", () =>{
-  //    cell.style.backgroundColor = "white";
-  //  });
+
  })
 
 
@@ -37,7 +44,7 @@ const bw = document.getElementById("bw");
 function blackWhite() {
   bw.addEventListener("click", ()=>{
     cells.forEach(cell => {
-      cell.addEventListener("mouseenter", () => {
+      cell.addEventListener("mouseleave", () => {
         const shades = [
           "grey",
           "dimgray",
@@ -58,7 +65,7 @@ const eraser = document.getElementById("eraser");
 function erase() {
   eraser.addEventListener("click", ()=>{
     cells.forEach(cell =>
-      cell.addEventListener("mouseenter", () => {
+      cell.addEventListener("mouseleave", () => {
         cell.style.backgroundColor = "white";
       }))
   })
@@ -70,7 +77,7 @@ function random(){
   rainbow.addEventListener("click", () => {
     cells.forEach(cell =>{
       const randomColor = Math.floor(Math.random()*16777215).toString(16);
-      cell.addEventListener("mouseenter", () => {
+      cell.addEventListener("mouseleave", () => {
         cell.style.backgroundColor = `#${randomColor}`;
       });
       cell.addEventListener("click", () =>{
@@ -124,7 +131,7 @@ const pickr = Pickr.create({
 pickr.on("change", (color, instance) =>{
   const customColor = color.toRGBA().toString();
   cells.forEach(cell => {
-    cell.addEventListener("mouseenter", () => {
+    cell.addEventListener("mouseleave", () => {
       cell.style.backgroundColor =customColor;
     })
   })
